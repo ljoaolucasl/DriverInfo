@@ -42,22 +42,14 @@ namespace DriverInfo.ConsoleApp
         public string? DriverVersion { get; private set; }
 
         /// <summary>
-        /// Data de Lançamento do Driver.
+        /// Data da Última Atualização do Driver.
         /// </summary>
         /// <remarks>
-        /// A data em que o driver foi lançado pelo fabricante. Esta data pode ser usada
-        /// para determinar a novidade do driver e se há atualizações disponíveis.
+        /// Representa a data em que a versão atual do driver foi instalada no sistema,
+        /// o que pode indicar a última atualização recebida. Essa data é útil para verificar
+        /// a atualidade do driver e determinar se pode haver atualizações mais recentes disponíveis.
         /// </remarks>
         public DateTime? DriverDate { get; private set; }
-
-        /// <summary>
-        /// Data de Instalação do Driver.
-        /// </summary>
-        /// <remarks>
-        /// Data em que o driver foi instalado no sistema. Pode diferir da data de lançamento
-        /// e é útil para o rastreamento da manutenção do sistema e diagnóstico de problemas.
-        /// </remarks>
-        public DateTime? InstallDate { get; private set; }
 
         public override string ToString()
         {
@@ -67,11 +59,9 @@ namespace DriverInfo.ConsoleApp
                                 "Device Class".PadRight(padWidth) + ": " + DeviceClass.OrDashIfEmpty() + "\n" +
                                 "Manufacturer".PadRight(padWidth) + ": " + Manufacturer.OrDashIfEmpty() + "\n" +
                                 "Driver Version".PadRight(padWidth) + ": " + DriverVersion.OrDashIfEmpty() + "\n" +
-                                "Driver Date".PadRight(padWidth) + ": " + (DriverDate?.ToString("yyyy-MM-dd") ?? "-") + "\n" +
-                                "Install Date".PadRight(padWidth) + ": " + (InstallDate?.ToString("yyyy-MM-dd") ?? "-") + "\n";
+                                "Driver Date".PadRight(padWidth) + ": " + (DriverDate?.ToString("yyyy-MM-dd") ?? "-") + "\n";
 
             return driverInfo;
         }
-
     }
 }

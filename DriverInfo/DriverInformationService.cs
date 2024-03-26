@@ -12,7 +12,9 @@ public static class DriverInformationService
         foreach (ManagementObject driverMO in searcher.Get())
         {
             var driver = CreateDriverFromManagementObject(driverMO);
-            Console.WriteLine(driver.ToString());
+
+            if (!string.IsNullOrEmpty(driver.DeviceName))
+                Console.WriteLine(driver.ToString());
         }
 
         Console.ReadLine();
